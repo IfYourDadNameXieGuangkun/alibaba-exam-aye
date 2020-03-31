@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.0.6.RELEASE</version>
+</parent>
+
+<groupId>com.tlibaba</groupId>
+<artifactId>alibaba-exam-aye</artifactId>
+<version>1.0-SNAPSHOT</version>
+<packaging>pom</packaging>
+<name>alibaba-exam-aye</name>
+
+<modules>
+    <module>alibaba-exam-provider</module>
+    <module>alibaba-exam-consumer</module>
+</modules>
+
+<properties>
+    <!-- Environment Settings -->
+    <java.version>1.8</java.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <!-- Spring Settings -->
+    <spring-cloud.version>Finchley.SR2</spring-cloud.version>
+    <spring-cloud-alibaba.version>0.2.1.RELEASE</spring-cloud-alibaba.version>
+    <!-- mybatis 、swagger插件-->
+    <mybatis-plus-start.version>3.3.1</mybatis-plus-start.version>
+    <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+    <swagger-bootstrap.version>1.9.6</swagger-bootstrap.version>
+
+</properties>
+    <dependencies>
+        <!-- 工具 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+<dependencyManagement>
+    <dependencies>
+        <!-- swagger2 -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox-swagger2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox-swagger2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
+            <version>${swagger-bootstrap.version}</version>
+        </dependency>
+
+        <!-- mybatis plus -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus-start.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+            <version>${mybatis-plus-start.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-extension</artifactId>
+            <version>${mybatis-plus-start.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+            <version>${spring-cloud-alibaba.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
+
+
+    <build>
+        <!-- 打包后文件名称：项目名-环境-版本 -->
+        <finalName>${project.artifactId}-${spring.profiles.active}-${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>application.yml</include>
+                    <include>application-${spring.profiles.active}.yml</include>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
+    <profiles>
+        <!-- 本地环境 -->
+        <profile>
+            <id>local</id>
+            <properties>
+                <spring.profiles.active>local</spring.profiles.active>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <!-- 开发环境 -->
+        <profile>
+            <id>dev</id>
+            <properties>
+                <spring.profiles.active>dev</spring.profiles.active>
+            </properties>
+        </profile>
+        <!-- 生产环境 -->
+        <profile>
+            <id>prod</id>
+            <properties>
+                <spring.profiles.active>prod</spring.profiles.active>
+            </properties>
+        </profile>
+    </profiles>
+
+<!--<repositories>-->
+<!--    <repository>-->
+<!--        <id>aliyun-repos</id>-->
+<!--        <name>Aliyun Repository</name>-->
+<!--        <url>http://maven.aliyun.com/nexus/content/groups/public</url>-->
+<!--        <releases>-->
+<!--            <enabled>true</enabled>-->
+<!--        </releases>-->
+<!--        <snapshots>-->
+<!--            <enabled>false</enabled>-->
+<!--        </snapshots>-->
+<!--    </repository>-->
+
+<!--    <repository>-->
+<!--        <id>sonatype-repos</id>-->
+<!--        <name>Sonatype Repository</name>-->
+<!--        <url>https://oss.sonatype.org/content/groups/public</url>-->
+<!--        <releases>-->
+<!--            <enabled>true</enabled>-->
+<!--        </releases>-->
+<!--        <snapshots>-->
+<!--            <enabled>false</enabled>-->
+<!--        </snapshots>-->
+<!--    </repository>-->
+<!--    <repository>-->
+<!--        <id>sonatype-repos-s</id>-->
+<!--        <name>Sonatype Repository</name>-->
+<!--        <url>https://oss.sonatype.org/content/repositories/snapshots</url>-->
+<!--        <releases>-->
+<!--            <enabled>false</enabled>-->
+<!--        </releases>-->
+<!--        <snapshots>-->
+<!--            <enabled>true</enabled>-->
+<!--        </snapshots>-->
+<!--    </repository>-->
+
+<!--    <repository>-->
+<!--        <id>spring-snapshots</id>-->
+<!--        <name>Spring Snapshots</name>-->
+<!--        <url>https://repo.spring.io/snapshot</url>-->
+<!--        <snapshots>-->
+<!--            <enabled>true</enabled>-->
+<!--        </snapshots>-->
+<!--    </repository>-->
+<!--    <repository>-->
+<!--        <id>spring-milestones</id>-->
+<!--        <name>Spring Milestones</name>-->
+<!--        <url>https://repo.spring.io/milestone</url>-->
+<!--        <snapshots>-->
+<!--            <enabled>false</enabled>-->
+<!--        </snapshots>-->
+<!--    </repository>-->
+<!--</repositories>-->
+
+<!--<pluginRepositories>-->
+<!--    <pluginRepository>-->
+<!--        <id>aliyun-repos</id>-->
+<!--        <name>Aliyun Repository</name>-->
+<!--        <url>http://maven.aliyun.com/nexus/content/groups/public</url>-->
+<!--        <releases>-->
+<!--            <enabled>true</enabled>-->
+<!--        </releases>-->
+<!--        <snapshots>-->
+<!--            <enabled>false</enabled>-->
+<!--        </snapshots>-->
+<!--    </pluginRepository>-->
+<!--</pluginRepositories>-->
+</project>
+
+
+
+
+        <!--<build>-->
+        <!--    <plugins>-->
+        <!--        &lt;!&ndash; Compiler 插件, 设定 JDK 版本 &ndash;&gt;-->
+        <!--        <plugin>-->
+        <!--            <groupId>org.apache.maven.plugins</groupId>-->
+        <!--            <artifactId>maven-compiler-plugin</artifactId>-->
+        <!--            <configuration>-->
+        <!--                <showWarnings>true</showWarnings>-->
+        <!--            </configuration>-->
+        <!--        </plugin>-->
+
+        <!--        &lt;!&ndash; 打包 jar 文件时，配置 manifest 文件，加入 lib 包的 jar 依赖 &ndash;&gt;-->
+        <!--        <plugin>-->
+        <!--            <groupId>org.apache.maven.plugins</groupId>-->
+        <!--            <artifactId>maven-jar-plugin</artifactId>-->
+        <!--            <configuration>-->
+        <!--                <archive>-->
+        <!--                    <addMavenDescriptor>false</addMavenDescriptor>-->
+        <!--                </archive>-->
+        <!--            </configuration>-->
+        <!--            <executions>-->
+        <!--                <execution>-->
+        <!--                    <configuration>-->
+        <!--                        <archive>-->
+        <!--                            <manifest>-->
+        <!--                                &lt;!&ndash; Add directory entries &ndash;&gt;-->
+        <!--                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>-->
+        <!--                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>-->
+        <!--                                <addClasspath>true</addClasspath>-->
+        <!--                            </manifest>-->
+        <!--                        </archive>-->
+        <!--                    </configuration>-->
+        <!--                </execution>-->
+        <!--            </executions>-->
+        <!--        </plugin>-->
+
+        <!--        &lt;!&ndash; resource &ndash;&gt;-->
+        <!--        <plugin>-->
+        <!--            <groupId>org.apache.maven.plugins</groupId>-->
+        <!--            <artifactId>maven-resources-plugin</artifactId>-->
+        <!--        </plugin>-->
+
+        <!--        &lt;!&ndash; install &ndash;&gt;-->
+        <!--        <plugin>-->
+        <!--            <groupId>org.apache.maven.plugins</groupId>-->
+        <!--            <artifactId>maven-install-plugin</artifactId>-->
+        <!--        </plugin>-->
+
+        <!--        &lt;!&ndash; clean &ndash;&gt;-->
+        <!--        <plugin>-->
+        <!--            <groupId>org.apache.maven.plugins</groupId>-->
+        <!--            <artifactId>maven-clean-plugin</artifactId>-->
+        <!--        </plugin>-->
+
+        <!--        &lt;!&ndash; ant &ndash;&gt;-->
+        <!--        <plugin>-->
+        <!--            <groupId>org.apache.maven.plugins</groupId>-->
+        <!--            <artifactId>maven-antrun-plugin</artifactId>-->
+        <!--        </plugin>-->
+
+        <!--        &lt;!&ndash; dependency &ndash;&gt;-->
+        <!--        <plugin>-->
+        <!--            <groupId>org.apache.maven.plugins</groupId>-->
+        <!--            <artifactId>maven-dependency-plugin</artifactId>-->
+        <!--        </plugin>-->
+        <!--    </plugins>-->
+
+        <!--    <pluginManagement>-->
+        <!--        <plugins>-->
+        <!--            &lt;!&ndash; Java Document Generate &ndash;&gt;-->
+        <!--            <plugin>-->
+        <!--                <groupId>org.apache.maven.plugins</groupId>-->
+        <!--                <artifactId>maven-javadoc-plugin</artifactId>-->
+        <!--                <executions>-->
+        <!--                    <execution>-->
+        <!--                        <phase>prepare-package</phase>-->
+        <!--                        <goals>-->
+        <!--                            <goal>jar</goal>-->
+        <!--                        </goals>-->
+        <!--                    </execution>-->
+        <!--                </executions>-->
+        <!--            </plugin>-->
+
+        <!--            &lt;!&ndash; YUI Compressor (CSS/JS压缩) &ndash;&gt;-->
+        <!--            <plugin>-->
+        <!--                <groupId>net.alchim31.maven</groupId>-->
+        <!--                <artifactId>yuicompressor-maven-plugin</artifactId>-->
+        <!--                <version>1.5.1</version>-->
+        <!--                <executions>-->
+        <!--                    <execution>-->
+        <!--                        <phase>prepare-package</phase>-->
+        <!--                        <goals>-->
+        <!--                            <goal>compress</goal>-->
+        <!--                        </goals>-->
+        <!--                    </execution>-->
+        <!--                </executions>-->
+        <!--                <configuration>-->
+        <!--                    <encoding>UTF-8</encoding>-->
+        <!--                    <jswarn>false</jswarn>-->
+        <!--                    <nosuffix>true</nosuffix>-->
+        <!--                    <linebreakpos>30000</linebreakpos>-->
+        <!--                    <force>true</force>-->
+        <!--                    <includes>-->
+        <!--                        <include>**/*.js</include>-->
+        <!--                        <include>**/*.css</include>-->
+        <!--                    </includes>-->
+        <!--                    <excludes>-->
+        <!--                        <exclude>**/*.min.js</exclude>-->
+        <!--                        <exclude>**/*.min.css</exclude>-->
+        <!--                    </excludes>-->
+        <!--                </configuration>-->
+        <!--            </plugin>-->
+        <!--        </plugins>-->
+        <!--    </pluginManagement>-->
+
+        <!--    &lt;!&ndash; 资源文件配置 &ndash;&gt;-->
+        <!--    <resources>-->
+        <!--        <resource>-->
+        <!--            <directory>src/main/java</directory>-->
+        <!--            <excludes>-->
+        <!--                <exclude>**/*.java</exclude>-->
+        <!--            </excludes>-->
+        <!--        </resource>-->
+        <!--        <resource>-->
+        <!--            <directory>src/main/resources</directory>-->
+        <!--        </resource>-->
+        <!--    </resources>-->
+        <!--</build>-->
