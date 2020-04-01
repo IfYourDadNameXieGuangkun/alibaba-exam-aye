@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-public class NacosConsumerController {
+public class NacosConsumerController extends BaseController {
 
     @Autowired
     private LoadBalancerClient loadBalancerClient;
@@ -16,7 +16,11 @@ public class NacosConsumerController {
     @Autowired
     private RestTemplate restTemplate;
     @GetMapping(value = "/echo/app/name")
-    public String echo(){
+    public String echo (){
+        logger.info("info-consumer time is in {}",System.currentTimeMillis());
+        logger.error("error-consumer time is in {}",System.currentTimeMillis());
+        logger.debug("debug-consumer time is in {}",System.currentTimeMillis());
+        logger.warn("warn-consumer time is in {}",System.currentTimeMillis());
         ServiceInstance serviceInstance = loadBalancerClient.choose("nacos-provider");
         String url = String.format("http://%s:%s/echo/%s",serviceInstance.getHost(),serviceInstance.getPort(),"Success");
         return restTemplate.getForObject(url,String.class);

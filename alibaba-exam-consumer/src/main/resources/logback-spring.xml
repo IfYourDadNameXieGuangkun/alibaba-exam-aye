@@ -2,13 +2,13 @@
 <configuration  scan="true" scanPeriod="10 seconds">
 
 	<springProfile name="local">
-		<property name="log.path" value="d:/boot/logs"/>
+		<property name="log.path" value="d:/test/consumer/logs/local"/>
 	</springProfile>
 	<springProfile name="dev">
-		<property name="log.path" value="/data/logs/test"/>
+		<property name="log.path" value="d:/test/consumer/logs/dev"/>
 	</springProfile>
 	<springProfile name="prod">
-		<property name="log.path" value="/data/logs/prod"/>
+		<property name="log.path" value="d:/test/consumer/logs/prod"/>
 	</springProfile>
 	<contextName>logback</contextName>
 
@@ -138,12 +138,35 @@
 		</filter>
 	</appender>
 
-	<root level="info">
-		<appender-ref ref="CONSOLE" />
-		<appender-ref ref="DEBUG_FILE" />
-		<appender-ref ref="INFO_FILE" />
-		<appender-ref ref="WARN_FILE" />
-		<appender-ref ref="ERROR_FILE" />
-	</root>
+	<springProfile name="local">
+		<root level="debug">
+			<appender-ref ref="CONSOLE" />
+		</root>
+	</springProfile>
+	<springProfile name="dev">
+		<root level="debug">
+			<appender-ref ref="DEBUG_FILE" />
+			<appender-ref ref="INFO_FILE" />
+			<appender-ref ref="WARN_FILE" />
+			<appender-ref ref="ERROR_FILE" />
+		</root>
+	</springProfile>
+
+	<springProfile name="prod">
+		<root level="info">
+			<appender-ref ref="DEBUG_FILE" />
+			<appender-ref ref="INFO_FILE" />
+			<appender-ref ref="WARN_FILE" />
+			<appender-ref ref="ERROR_FILE" />
+		</root>
+	</springProfile>
+
+<!--	<root level="info">-->
+<!--		<appender-ref ref="CONSOLE" />-->
+<!--		<appender-ref ref="DEBUG_FILE" />-->
+<!--		<appender-ref ref="INFO_FILE" />-->
+<!--		<appender-ref ref="WARN_FILE" />-->
+<!--		<appender-ref ref="ERROR_FILE" />-->
+<!--	</root>-->
 
 </configuration>
