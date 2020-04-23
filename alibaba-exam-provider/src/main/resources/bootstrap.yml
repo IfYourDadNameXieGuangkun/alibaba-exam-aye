@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.216.134:8848
+      config:
+        timeout: 100000
+        server-addr: 192.168.216.134:8848
+        file-extension: yaml
+        encode: UTF-8
+        extension-configs:
+          - data-id: local-nacos-provider.yaml
+            group: local
+
+
+
+

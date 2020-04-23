@@ -8,8 +8,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-public class NacosConsumerFeighApplication {
+public class NacosConsumerFeignApplication {
     public static void main(String[] args) {
-        SpringApplication.run(NacosConsumerFeighApplication.class,args);
+        SpringApplication.run(NacosConsumerFeignApplication.class,args);
     }
 }

@@ -31,4 +31,16 @@ public class NacosConsumerController extends BaseController {
         return restTemplate.getForObject(url,String.class);
 
     }
+
+    /**
+     * Gateway AuthFilter Test
+     * @param msg
+     * @return
+     */
+    @GetMapping(value = "/authFilter/{msg}")
+    public String authFilterTest (@PathVariable String msg){
+       logger.info("AuthFilter Come in");
+        return "AuthFilter Test Success "+msg;
+
+    }
 }

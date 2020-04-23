@@ -1,11 +1,11 @@
 spring:
   application:
-    name: nacos-consumer-feigh
+    name: nacos-consumer-feign
   cloud:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
-        group: consumer-feigh
+        group: consumer-feign
 server:
   port: 9991
 
