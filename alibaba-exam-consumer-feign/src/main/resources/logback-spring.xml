@@ -2,13 +2,13 @@
 <configuration  scan="true" scanPeriod="10 seconds">
 
 	<springProfile name="local">
-		<property name="log.path" value="d:/test/consumer/logs/local"/>
+		<property name="log.path" value="d:/test/consumer-feigh/logs/local"/>
 	</springProfile>
 	<springProfile name="dev">
-		<property name="log.path" value="d:/test/consumer/logs/dev"/>
+		<property name="log.path" value="d:/test/consumer-feigh/logs/dev"/>
 	</springProfile>
 	<springProfile name="prod">
-		<property name="log.path" value="d:/test/consumer/logs/prod"/>
+		<property name="log.path" value="d:/test/consumer-feigh/logs/prod"/>
 	</springProfile>
 	<contextName>logback</contextName>
 

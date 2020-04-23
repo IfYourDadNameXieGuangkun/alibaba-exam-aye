@@ -12,7 +12,7 @@ public class NacosProviderController extends BaseController {
         logger.debug("debug Provider time is in:{}",System.currentTimeMillis());
         logger.error("error Provider time is in:{}",System.currentTimeMillis());
         logger.warn("warn Provider time is in:{}",System.currentTimeMillis());
-        return "hello Nacos Discovery"+message;
+        return "hello Nacos Discovery "+message;
     }
 
 }

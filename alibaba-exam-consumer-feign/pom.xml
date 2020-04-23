@@ -8,9 +8,11 @@
         <groupId>com.tlibaba</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>alibaba-exam-consumer</artifactId>
+
+
+    <artifactId>alibaba-exam-consumer-feign</artifactId>
     <packaging>jar</packaging>
-    <name>alibaba-exam-consumer</name>
+    <name>alibaba-exam-consumer-feign</name>
 <dependencies>
     <!-- Spring Boot Begin -->
     <dependency>
@@ -27,9 +29,15 @@
         <scope>test</scope>
     </dependency>
     <!-- Spring Cloud Begin -->
+
+    <!-- Spring Cloud Begin -->
     <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-openfeign</artifactId>
     </dependency>
     <!-- Spring Cloud End -->
 
@@ -47,8 +55,8 @@
         <artifactId>swagger-bootstrap-ui</artifactId>
     </dependency>
     <!-- swagger2 相关配置 End-->
-</dependencies>
 
+</dependencies>
     <build>
         <plugins>
             <plugin>
@@ -59,9 +67,10 @@
 <!--                <groupId>org.springframework.boot</groupId>-->
 <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
 <!--                <configuration>-->
-<!--                    <mainClass>com.alibaba.consumer.NacosConsumerApplication</mainClass>-->
+<!--                    <mainClass>com.alibaba.consumer.feign.NacosConsumerFeighApplication</mainClass>-->
 <!--                </configuration>-->
 <!--            </plugin>-->
         </plugins>
     </build>
+
 </project>
