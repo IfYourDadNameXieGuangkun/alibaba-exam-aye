@@ -1,9 +1,0 @@
-#公共配置文件
-spring:
-  profiles:
-    active: @spring.profiles.active@
-
-
-
-
-
