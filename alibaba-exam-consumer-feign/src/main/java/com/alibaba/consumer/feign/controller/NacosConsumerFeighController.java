@@ -13,7 +13,7 @@ public class NacosConsumerFeighController {
     @Autowired
     private NacosConsumerFeignService nacosConsumerFeighService;
 
-    @GetMapping("/feigh/{msg}")
+    @GetMapping("/feign/{msg}")
     public String echo(@PathVariable String msg){
 
         return nacosConsumerFeighService.echo(msg);
