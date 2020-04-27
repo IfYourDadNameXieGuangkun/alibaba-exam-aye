@@ -13,10 +13,10 @@ public class NacosProviderController extends BaseController {
     private String mysql;
     @GetMapping(value = "echo/{message}")
     public String echo(@PathVariable String message){
-        logger.info("info Provider time is in:{}",System.currentTimeMillis());
-        logger.debug("debug Provider time is in:{}",System.currentTimeMillis());
+        //logger.info("info Provider time is in:{}",System.currentTimeMillis());
+        //logger.debug("debug Provider time is in:{}",System.currentTimeMillis());
         logger.error("error Provider time is in:{}",System.currentTimeMillis());
-        logger.warn("warn Provider time is in:{}",System.currentTimeMillis());
+        //logger.warn("warn Provider time is in:{}",System.currentTimeMillis());
         return "hello Nacos Discovery "+message+"=="+redis+"==="+mysql;
     }
 
