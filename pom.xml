@@ -21,6 +21,7 @@
         <module>alibaba-exam-consumer-feign</module>
         <module>alibaba-exam-api</module>
         <module>alibaba-exam-gateway</module>
+        <module>alibaba-exam-genetator</module>
     </modules>
 
     <properties>
