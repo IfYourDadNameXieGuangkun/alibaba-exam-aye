@@ -14,9 +14,15 @@ spring:
         namespace: 323782d2-1bb5-47d5-bc6e-d2660de3068c
         group: provider
         prefix: nacos-provider
-#        refreshable-dataids:
-#            - nacos-provider
-#            - nacos-provider-redis
+        # 扩展配置 : 优先级中,n越大,优先级越高
+        ext-config[0]:
+          data-id: nacos-provider-redis.yaml
+          refresh: true
+          group: provider
+#        ext-config[1]:
+#          data-id: nacos-provider-redis.yaml
+#          refresh: true
+#          group: provider
 
 rediso: redis-prod
 
