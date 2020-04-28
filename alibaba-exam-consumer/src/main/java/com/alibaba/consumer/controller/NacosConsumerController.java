@@ -41,6 +41,5 @@ public class NacosConsumerController extends BaseController {
     public String authFilterTest (@PathVariable String msg){
        logger.info("AuthFilter Come in");
         return "AuthFilter Test Success "+msg;
-
     }
 }

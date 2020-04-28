@@ -11,7 +11,7 @@ spring:
         ##            group: DEFAULT_GROUP
         #          - data-id: nacos-provider-redis.yaml
         ##             group: DEFAULT_GROUP
-        namespace: /*323782d2-1bb5-47d5-bc6e-d2660de3068c*/
+        namespace: 0f274087-76df-42aa-9623-c7ade399136b
         group: provider
         prefix: nacos-provider
         # 扩展配置 : 优先级中,n越大,优先级越高

@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        timeout: 100000
+        server-addr: 192.168.25.128:8848
+        file-extension: yaml
+        encode: UTF-8
+        namespace: 323782d2-1bb5-47d5-bc6e-d2660de3068c
+        group: feign
+        prefix: nacos-consumer-feign
+        # 扩展配置 : 优先级中,n越大,优先级越高
+        ext-config[0]:
+          data-id: feign-mysql.yaml
+          refresh: true
+          group: feign
+
+
+
+
+
+
+
+
+

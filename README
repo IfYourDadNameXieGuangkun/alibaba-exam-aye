@@ -1,2 +1,5 @@
 LOCAL:良品环境
 DEV:笔记本电脑环境
+
+两个服务之间 使用Feign 通信-->项目中的应用:
+Consumer-Feign 调用 Provider , Consumer-Feign需要使用Feign的jar包,并按照Feign的标准代码进行调用
