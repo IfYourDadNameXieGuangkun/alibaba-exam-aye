@@ -14,6 +14,11 @@ spring:
         namespace: 66cc210a-127b-40c5-bd5c-10e49aa1e0a6
         group: provider
         prefix: nacos-provider
+  #        扩展配置 : 优先级中,n越大,优先级越高
+        ext-config[0]:
+          data-id: nacos-provider-redis.yaml
+          refresh: true
+          group: provider
 
 rediso: redis-local
 
