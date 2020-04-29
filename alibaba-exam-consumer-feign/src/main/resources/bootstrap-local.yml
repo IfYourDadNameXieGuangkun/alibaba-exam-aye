@@ -14,7 +14,10 @@ spring:
           data-id: feign-mysql.yaml
           refresh: true
           group: feign
-
+        ext-config[1]:
+          data-id: nacos-datasource.yaml
+          refresh: true
+          group: dataSource
 
 
 
