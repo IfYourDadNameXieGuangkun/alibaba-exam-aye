@@ -1,5 +1,11 @@
-LOCAL:良品环境
-DEV:笔记本电脑环境
+1.LOCAL:良品环境
+  DEV:笔记本电脑环境
 
-两个服务之间 使用Feign 通信-->项目中的应用:
-Consumer-Feign 调用 Provider , Consumer-Feign需要使用Feign的jar包,并按照Feign的标准代码进行调用
+2.两个服务之间 使用Feign 通信-->项目中的应用:
+    Consumer-Feign 调用 Provider , Consumer-Feign需要使用Feign的jar包,并按照Feign的标准代码进行调用
+
+3.每个微服务client 目录中存放其他业务的Feign的交互接口
+
+4.client目录下的fallback 存放[房子雪崩fallBack 业务处理类]
+
+5.gateWay-->外部程序访问总入口

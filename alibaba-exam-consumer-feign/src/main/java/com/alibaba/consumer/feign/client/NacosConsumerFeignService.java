@@ -1,8 +1,8 @@
-package com.alibaba.consumer.feign.feignservice;
+package com.alibaba.consumer.feign.client;
 
 
 
-import com.alibaba.consumer.feign.feignservice.fallback.NacosConsumerFeignServiceFallBack;
+import com.alibaba.consumer.feign.client.fallback.NacosConsumerFeignServiceFallBack;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,6 +1,6 @@
 package com.alibaba.consumer.feign.controller;
 
-import com.alibaba.consumer.feign.feignservice.NacosConsumerFeignService;
+import com.alibaba.consumer.feign.client.NacosConsumerFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

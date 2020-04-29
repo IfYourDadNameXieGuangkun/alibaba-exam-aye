@@ -1,6 +1,6 @@
-package com.alibaba.consumer.feign.feignservice.fallback;
+package com.alibaba.consumer.feign.client.fallback;
 
-import com.alibaba.consumer.feign.feignservice.NacosConsumerFeignService;
+import com.alibaba.consumer.feign.client.NacosConsumerFeignService;
 import org.springframework.stereotype.Component;
 
 

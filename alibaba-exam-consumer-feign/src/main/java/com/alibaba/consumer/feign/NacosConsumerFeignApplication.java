@@ -9,7 +9,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-@MapperScan("com.alibaba.api.common.mapper")
 public class NacosConsumerFeignApplication {
     public static void main(String[] args) {
         SpringApplication.run(NacosConsumerFeignApplication.class,args);

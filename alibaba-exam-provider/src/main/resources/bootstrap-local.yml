@@ -19,6 +19,10 @@ spring:
           data-id: nacos-provider-redis.yaml
           refresh: true
           group: provider
+        ext-config[1]:
+          data-id: nacos-datasource.yaml
+          refresh: true
+          group: dataSource
 
 rediso: redis-local
 

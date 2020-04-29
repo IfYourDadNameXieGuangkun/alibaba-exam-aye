@@ -64,6 +64,8 @@ public class MysqlGenerator {
         gc.setOutputDir(projectPath + "\\alibaba-exam-genetator\\src\\main\\java");
         gc.setAuthor("aye");
         gc.setOpen(false);
+        gc.setBaseResultMap(true);// XML ResultMap
+        gc.setBaseColumnList(true);// XML columList
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
