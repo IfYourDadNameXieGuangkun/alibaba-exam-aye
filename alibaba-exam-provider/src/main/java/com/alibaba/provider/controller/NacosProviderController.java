@@ -6,6 +6,7 @@ import com.alibaba.api.client.provider.fallback.NacosProviderControllerFeignFall
 import com.alibaba.api.service.ITUserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.google.common.collect.Maps;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import java.util.Map;
 
 
 @RestController
+@Slf4j
 public class NacosProviderController extends BaseController {
     @Value("${rediso}")
     private String redis;
@@ -27,7 +29,7 @@ public class NacosProviderController extends BaseController {
     private NacosConsumerFeignControllerFeign nacosConsumerFeignControllerFeign;
     @GetMapping(value = "echo/{name}")
     public String echo(@PathVariable String name){
-
+        log.info("{},{},{},{}",1,2,3,4);
         QueryWrapper<TUser> tUserQueryWrapper = new QueryWrapper<>();
         tUserQueryWrapper.lambda().eq(TUser::getUserName,name);
         TUser user = itUserService.getOne(tUserQueryWrapper);
