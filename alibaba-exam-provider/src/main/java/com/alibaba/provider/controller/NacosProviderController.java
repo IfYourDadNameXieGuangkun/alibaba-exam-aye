@@ -36,4 +36,12 @@ public class NacosProviderController extends BaseController {
         return "hello Nacos Discovery "+name+"=="+redis+"==="+mysql;
     }
 
+    @GetMapping(value = "user/get/{name}")
+    public TUser testApiFeignAndFallBack(@PathVariable("name") String name){
+        QueryWrapper<TUser> tUserQueryWrapper = new QueryWrapper<>();
+        tUserQueryWrapper.lambda().eq(TUser::getUserName,name);
+        TUser user = itUserService.getOne(tUserQueryWrapper);
+        return user;
+    }
+
 }

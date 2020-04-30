@@ -12,6 +12,12 @@
     <packaging>jar</packaging>
     <name>alibaba-exam-consumer</name>
 <dependencies>
+    <!-- 内部包 -->
+    <dependency>
+        <groupId>com.tlibaba</groupId>
+        <artifactId>alibaba-exam-api</artifactId>
+        <version>${version}</version>
+    </dependency>
     <!-- Spring Boot Begin -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -26,16 +32,6 @@
         <artifactId>spring-boot-starter-test</artifactId>
         <scope>test</scope>
     </dependency>
-    <!-- Spring Cloud Begin -->
-    <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-    </dependency>
-    <!-- Spring Cloud End -->
 
     <!-- swagger2 相关配置 Start-->
     <dependency>
