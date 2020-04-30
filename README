@@ -1,3 +1,4 @@
+主要项目:provider与consumer-feign 之间的调用 以及gateway的加入 api的集成,consumer只是个过滤的代码,可以忽略
 1.LOCAL:良品环境
   DEV:笔记本电脑环境
 
