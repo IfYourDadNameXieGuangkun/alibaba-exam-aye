@@ -1,6 +1,8 @@
 package com.alibaba.provider.controller;
 
 import com.alibaba.api.business.provider.TUser;
+import com.alibaba.api.client.consumer.NacosConsumerFeignControllerFeign;
+import com.alibaba.api.client.provider.fallback.NacosProviderControllerFeignFallBack;
 import com.alibaba.api.service.ITUserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.google.common.collect.Maps;
@@ -20,6 +22,9 @@ public class NacosProviderController extends BaseController {
     private String mysql;
     @Autowired
     private ITUserService itUserService;
+
+    @Autowired
+    private NacosConsumerFeignControllerFeign nacosConsumerFeignControllerFeign;
     @GetMapping(value = "echo/{name}")
     public String echo(@PathVariable String name){
 
@@ -42,6 +47,11 @@ public class NacosProviderController extends BaseController {
         tUserQueryWrapper.lambda().eq(TUser::getUserName,name);
         TUser user = itUserService.getOne(tUserQueryWrapper);
         return user;
+    }
+
+    @GetMapping(value = "user/list/{name}")
+    public String testProviderFeign2Consumer(@PathVariable("name") String name){
+        return nacosConsumerFeignControllerFeign.provider2ConsumerFeign(name);
     }
 
 }
