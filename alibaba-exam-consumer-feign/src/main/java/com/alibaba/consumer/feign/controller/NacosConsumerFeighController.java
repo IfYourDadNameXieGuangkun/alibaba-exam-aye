@@ -15,7 +15,7 @@ public class NacosConsumerFeighController {
     @Autowired
     private NacosConsumerFeignService nacosConsumerFeighService;
 
-    @Autowired(required = true)
+    @Autowired
     private NacosProviderControllerFeign nacosProviderControllerFeign;
 
     @GetMapping("/feign/{msg}")
