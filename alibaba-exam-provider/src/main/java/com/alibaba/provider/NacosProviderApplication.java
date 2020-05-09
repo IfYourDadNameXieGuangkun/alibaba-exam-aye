@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients
+@EnableFeignClients(basePackages = {"com.alibaba.api.client"})
 @ComponentScan("com.alibaba")
 public class NacosProviderApplication {
     public static void main(String[] args) {

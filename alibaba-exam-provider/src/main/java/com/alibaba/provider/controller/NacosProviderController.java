@@ -51,6 +51,11 @@ public class NacosProviderController extends BaseController {
         return user;
     }
 
+    /**
+     * provider服务调用 consumer-feign服务
+     * @param name
+     * @return
+     */
     @GetMapping(value = "user/list/{name}")
     public String testProviderFeign2Consumer(@PathVariable("name") String name){
         return nacosConsumerFeignControllerFeign.provider2ConsumerFeign(name);

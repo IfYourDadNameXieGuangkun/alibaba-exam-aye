@@ -14,6 +14,7 @@ public class NacosConsumerFeignControllerFeignFallBack implements NacosConsumerF
 
     @Override
     public String provider2ConsumerFeign(String name) {
+        logger.info("adminfallback["+name+"]");
         return "NacosConsumerFeignControllerFeignFallBack"+"=="+name;
     }
 }
