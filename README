@@ -10,3 +10,11 @@
 4.client目录下的fallback 存放[防止雪崩fallBack 业务处理类]
 
 5.gateWay-->外部程序访问总入口
+
+
+
+xxl-job:
+创建一个job的步骤:
+1.创建一个执行器( 与配置文件中相同 xxl.ob.executor.appname=alibaba-exam-aye-job,相当于多个任务绑定在统一个执行器上,若执行器存在无需配置)
+2.创建一个任务,绑定对应的执行器,并绑定 Bean(代码中的@XxlJob("firstJobHandler"))
+

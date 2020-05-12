@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: xxl-job
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.216.134:8848
+server:
+  port: 8888
+
+feign:
+  sentinel:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+logging:
+  config: classpath:logback-spring.xml
+
+#xxl:
+#  job:
+#    admin:
+#      address: http://192.168.216.134:8080/xxl-job-admin/
+#    executor:
+#      appname: alibaba-exam-aye-job
+#      ip:
+#      port: 6666
+#      logpath: d:/test/job/logs/local
+#      logretentiondays: 30
+
