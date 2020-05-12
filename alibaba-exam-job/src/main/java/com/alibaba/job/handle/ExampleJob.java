@@ -20,7 +20,7 @@ public class ExampleJob {
      *
      */
     @XxlJob("firstJobHandler")
-    public ReturnT<String> demoJobHandler(String param) throws Exception {
+    public ReturnT<String> firstJobHandler(String param) throws Exception {
         XxlJobLogger.log("Alibaba-Exam-JOB, Hello World.");
 
         for (int i = 0; i < 5; i++) {
