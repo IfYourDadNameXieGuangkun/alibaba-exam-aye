@@ -2,7 +2,7 @@ package com.alibaba.provider.controller;
 
 import com.alibaba.api.business.provider.TUser;
 import com.alibaba.api.client.consumer.NacosConsumerFeignControllerFeign;
-import com.alibaba.api.client.provider.fallback.NacosProviderControllerFeignFallBack;
+import com.alibaba.api.config.redis.RedisUtil;
 import com.alibaba.api.service.ITUserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.google.common.collect.Maps;
@@ -24,6 +24,8 @@ public class NacosProviderController extends BaseController {
     private String mysql;
     @Autowired
     private ITUserService itUserService;
+    @Autowired
+    private RedisUtil redisUtil;
 
     @Autowired
     private NacosConsumerFeignControllerFeign nacosConsumerFeignControllerFeign;
@@ -40,6 +42,7 @@ public class NacosProviderController extends BaseController {
         //logger.debug("debug Provider time is in:{}",System.currentTimeMillis());
         logger.error("error Provider time is in:[{}],user is [{}]",System.currentTimeMillis(),user.toString());
         logger.warn("warn Provider time is in:{},user is [{}]",System.currentTimeMillis(),user1.toString());
+        redisUtil.set("aye",name);
         return "hello Nacos Discovery "+name+"=="+redis+"==="+mysql;
     }
 

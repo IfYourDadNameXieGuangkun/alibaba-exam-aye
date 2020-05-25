@@ -1,4 +1,4 @@
-package com.alibaba.provider.config;
+package com.alibaba.api.config.db;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.mybatis.spring.annotation.MapperScan;

@@ -18,6 +18,10 @@ spring:
           data-id: nacos-datasource.yaml
           refresh: true
           group: dataSource
+        ext-config[2]:
+          data-id: nacos-redis.yaml
+          refresh: true
+          group: dataSource
 
 
 
