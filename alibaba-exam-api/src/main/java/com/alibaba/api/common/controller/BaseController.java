@@ -10,5 +10,5 @@ import org.slf4j.LoggerFactory;
  * @Version: V1.0
  */
 public class BaseController {
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+    protected   Logger logger = LoggerFactory.getLogger(this.getClass());
 }

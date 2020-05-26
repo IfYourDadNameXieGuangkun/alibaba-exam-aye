@@ -2,6 +2,7 @@ package com.alibaba.provider.controller;
 
 import com.alibaba.api.business.provider.TUser;
 import com.alibaba.api.client.consumer.NacosConsumerFeignControllerFeign;
+import com.alibaba.api.common.controller.BaseController;
 import com.alibaba.api.config.redis.RedisUtil;
 import com.alibaba.api.service.ITUserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;

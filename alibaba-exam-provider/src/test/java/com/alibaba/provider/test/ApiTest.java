@@ -1,6 +1,8 @@
 package com.alibaba.provider.test;
 
+import com.alibaba.api.client.consumer.ConsumerFeignClient;
 import com.alibaba.api.client.consumer.NacosConsumerFeignControllerFeign;
+import com.alibaba.api.common.utils.Result;
 import com.alibaba.provider.NacosProviderApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,9 +19,17 @@ public class ApiTest {
     @Autowired
     private NacosConsumerFeignControllerFeign nacosConsumerFeignControllerFeign;
 
+    @Autowired
+    private ConsumerFeignClient consumerFeignClient;
     @Test
     public void testFeign01(){
         String test = nacosConsumerFeignControllerFeign.provider2ConsumerFeign("test");
+        System.out.println(test);
+    }
+
+    @Test
+    public void testFeign02(){
+        Result test = consumerFeignClient.provider2Feign("admin");
         System.out.println(test);
     }
 

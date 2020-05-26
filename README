@@ -11,7 +11,7 @@
 
 5.gateWay-->外部程序访问总入口
 
-
+6.debug断点时间过长会使FallBack熔断器生效
 
 xxl-job:
 创建一个job的步骤:
