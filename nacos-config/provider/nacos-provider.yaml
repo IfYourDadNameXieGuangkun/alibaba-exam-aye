@@ -12,6 +12,7 @@ feign:
   sentinel:
     enabled: true
 
+
 name: "local"
 management:
   endpoints:

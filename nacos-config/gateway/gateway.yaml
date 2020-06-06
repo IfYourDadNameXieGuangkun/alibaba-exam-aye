@@ -28,7 +28,7 @@ spring:
         - id: NACOS-CONSUMER-FEIGN
           uri: lb://nacos-provider
           predicates:
-              - Method=GET,POST
+            - Method=GET,POST
 ## 使用 Sentinel 作为熔断器
 #    sentinel:
 #      transport:
@@ -41,47 +41,3 @@ management:
     web:
       exposure:
         include: "*"
-
-
-
-
-
-#server:
-#  port: 8080
-#
-#name: "local"
-#
-#spring:
-#  datasource:
-#    name: springboot
-#    type: com.alibaba.druid.pool.DruidDataSource
-#    #druid相关配置
-#    druid:
-#      #监控统计拦截的filters
-#      filter: stat
-#      #mysql驱动
-#      driver-class-name: com.mysql.jdbc.Driver
-#      #基本属性
-#      url: jdbc:mysql://127.0.0.1:3306/spring_boot?useUnicode=true&allowMultiQueries=TRUE&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-#      username: root
-#      password: root
-#      #配置初始化大小/最小/最大
-#      initial-size: 1
-#      min-idle: 1
-#      max-active: 20
-#      #获取连接等待超时时间
-#      max-wait: 60000
-#      #间隔多久进行一次检测，检测需要关闭的空闲连接
-#      time-between-eviction-runs-millis: 60000
-#
-#  #mybatis配置
-#mybatis:
-#    mapper-locations: classpath:/mapping/*.xml
-#    type-aliases-package: com.lppz.entity.dto
-#
-##pagehelper分页插件
-#pagehelper:
-#  helperDialect: mysql
-#  reasonable: true
-#  supportMethodsArguments: true
-#  params: count=countSql

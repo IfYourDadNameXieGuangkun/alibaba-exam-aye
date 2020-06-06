@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-
+/**
+ * Function:传统方法调用Provider中的NoFeignController(相当于Feign的底层方法)
+ */
 @RestController
 public class NacosConsumerController extends BaseController {
 
