@@ -11,9 +11,13 @@ spring:
         prefix: nacos-consumer
   #        扩展配置 : 优先级中,n越大,优先级越高
         ext-config[0]:
-          data-id: nacos-consumer-mysql.yaml
+          data-id: nacos-datasource.yaml
           refresh: true
-          group: consumer
+          group: dataSource
+        ext-config[1]:
+          data-id: nacos-redis.yaml
+          refresh: true
+          group: dataSource
 
 
 

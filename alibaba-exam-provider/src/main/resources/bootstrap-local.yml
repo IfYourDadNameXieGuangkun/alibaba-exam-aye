@@ -27,8 +27,14 @@ spring:
           data-id: nacos-redis.yaml
           refresh: true
           group: dataSource
+        ext-config[3]:
+          data-id: nacos-mail.yaml
+          refresh: true
+          group: tools
 
 rediso: redis-local
+
+
 
 
 

@@ -3,6 +3,7 @@ package com.alibaba.provider.controller;
 import com.alibaba.api.business.provider.TUser;
 import com.alibaba.api.client.consumer.NacosConsumerFeignControllerFeign;
 import com.alibaba.api.common.controller.BaseController;
+import com.alibaba.api.common.utils.MailService;
 import com.alibaba.api.config.redis.RedisUtil;
 import com.alibaba.api.service.ITUserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -27,6 +28,8 @@ public class NacosProviderController extends BaseController {
     private ITUserService itUserService;
     @Autowired
     private RedisUtil redisUtil;
+    @Autowired
+    private MailService mailService;
 
     @Autowired
     private NacosConsumerFeignControllerFeign nacosConsumerFeignControllerFeign;
@@ -62,6 +65,7 @@ public class NacosProviderController extends BaseController {
      */
     @GetMapping(value = "user/list/{name}")
     public String testProviderFeign2Consumer(@PathVariable("name") String name){
+        mailService.sendSimpleMail("baiwei@lppz.com","123","123");
         return nacosConsumerFeignControllerFeign.provider2ConsumerFeign(name);
     }
 
