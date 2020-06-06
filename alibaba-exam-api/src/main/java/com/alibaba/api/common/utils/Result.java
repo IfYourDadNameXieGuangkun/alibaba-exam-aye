@@ -7,6 +7,10 @@ public class Result<T> {
     private String msg;
     private T data;
 
+
+    private Result() {
+
+    }
     private Result(int code, String msg) {
         this.code = code;
         this.msg = msg;

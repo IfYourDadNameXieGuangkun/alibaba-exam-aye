@@ -1,7 +1,6 @@
-package com.alibaba.provider.controller;
+package com.alibaba.provider.clicontroller;
 
 import com.alibaba.api.business.provider.TUser;
-import com.alibaba.api.client.consumer.NacosConsumerFeignControllerFeign;
 import com.alibaba.api.common.controller.BaseController;
 import com.alibaba.api.common.utils.MailService;
 import com.alibaba.api.config.redis.RedisUtil;
@@ -13,26 +12,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 
+/**
+ * 此Controller 提供给外部服务调用
+ */
 @RestController
 @Slf4j
-public class NacosProviderController extends BaseController {
+@RequestMapping("cliProvider")
+public class AcceptFeign2ProviderController extends BaseController {
     @Value("${rediso}")
     private String redis;
     @Value("${mysql0}")
     private String mysql;
     @Autowired
     private ITUserService itUserService;
-    @Autowired
-    private RedisUtil redisUtil;
-    @Autowired
-    private MailService mailService;
 
-    @Autowired
-    private NacosConsumerFeignControllerFeign nacosConsumerFeignControllerFeign;
     @GetMapping(value = "echo/{name}")
     public String echo(@PathVariable String name){
         log.info("{},{},{},{}",1,2,3,4);
@@ -46,27 +44,8 @@ public class NacosProviderController extends BaseController {
         //logger.debug("debug Provider time is in:{}",System.currentTimeMillis());
         logger.error("error Provider time is in:[{}],user is [{}]",System.currentTimeMillis(),user.toString());
         logger.warn("warn Provider time is in:{},user is [{}]",System.currentTimeMillis(),user1.toString());
-        redisUtil.set("aye",name);
         return "hello Nacos Discovery "+name+"=="+redis+"==="+mysql;
     }
 
-    @GetMapping(value = "user/get/{name}")
-    public TUser testApiFeignAndFallBack(@PathVariable("name") String name){
-        QueryWrapper<TUser> tUserQueryWrapper = new QueryWrapper<>();
-        tUserQueryWrapper.lambda().eq(TUser::getUserName,name);
-        TUser user = itUserService.getOne(tUserQueryWrapper);
-        return user;
-    }
-
-    /**
-     * provider服务调用 consumer-feign服务
-     * @param name
-     * @return
-     */
-    @GetMapping(value = "user/list/{name}")
-    public String testProviderFeign2Consumer(@PathVariable("name") String name){
-        mailService.sendSimpleMail("baiwei@lppz.com","123","123");
-        return nacosConsumerFeignControllerFeign.provider2ConsumerFeign(name);
-    }
 
 }

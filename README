@@ -1,4 +1,9 @@
-主要项目:provider与consumer-feign 之间的调用 以及gateway的加入 api的集成,consumer只是个过滤的代码,可以忽略
+0.主要项目:provider与consumer-feign 之间的调用 以及gateway的加入 api的集成,consumer只是个过滤的代码,可以忽略
+  [1]provider服务调用consumer-feign服务接口:
+      com.alibaba.provider.controller.Provider2FeignController.Provider2Feign
+  [2]consumer-feign服务调用provider服务接口:
+
+
 1.LOCAL:良品环境
   DEV:笔记本电脑环境
 
@@ -17,4 +22,7 @@ xxl-job:
 创建一个job的步骤:
 1.创建一个执行器( 与配置文件中相同 xxl.ob.executor.appname=alibaba-exam-aye-job,相当于多个任务绑定在统一个执行器上,若执行器存在无需配置)
 2.创建一个任务,绑定对应的执行器,并绑定 Bean(代码中的@XxlJob("firstJobHandler"))
+
+
+
 
