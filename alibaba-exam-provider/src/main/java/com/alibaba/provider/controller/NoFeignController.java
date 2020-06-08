@@ -15,4 +15,7 @@ public class NoFeignController {
         System.out.println(name);
         return name;
     }
+
+
+
 }

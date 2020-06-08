@@ -2,8 +2,6 @@ package com.alibaba.provider.clicontroller;
 
 import com.alibaba.api.business.provider.TUser;
 import com.alibaba.api.common.controller.BaseController;
-import com.alibaba.api.common.utils.MailService;
-import com.alibaba.api.config.redis.RedisUtil;
 import com.alibaba.api.service.ITUserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.google.common.collect.Maps;

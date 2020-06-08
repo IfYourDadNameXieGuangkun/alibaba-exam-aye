@@ -1,4 +1,4 @@
-package com.alibaba.api.common.utils;
+package com.alibaba.api.common.utils.Email;
 
 
 import org.slf4j.Logger;
