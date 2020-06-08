@@ -23,6 +23,7 @@
         <module>alibaba-exam-gateway</module>
         <module>alibaba-exam-genetator</module>
         <module>alibaba-exam-job</module>
+        <module>alibaba-exam-java8</module>
     </modules>
 
     <properties>
