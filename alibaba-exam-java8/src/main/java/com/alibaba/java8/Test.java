@@ -1,4 +1,6 @@
-package com.alibaba.java8.lambda;
+package com.alibaba.java8;
+
+import com.alibaba.java8.interfaces.Formula;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -7,7 +9,7 @@ import java.awt.event.ActionListener;
 public class Test {
     public static void main(String[] args) {
         //test01();
-        test02();
+        test03();
     }
 
 
@@ -35,6 +37,23 @@ public class Test {
             }
         });
     }
+
+
+    private static void test03(){
+        Formula formula = new Formula() {
+            @Override
+            public double calculate(int a) {
+                return sqrt(a * 1000);
+            }
+        };
+
+        double calculate = formula.calculate(2);
+        double calculate2 = formula.sqrt(2);
+        System.out.println(calculate+":"+calculate2);
+    }
+
+
+
 
 
 }

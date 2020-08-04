@@ -8,14 +8,19 @@ import com.alibaba.api.common.utils.Email.MailService;
 import com.alibaba.api.common.utils.Result;
 import com.alibaba.api.config.redis.RedisUtil;
 import com.alibaba.api.service.ITUserService;
+import com.alibaba.api.mq.StreamSource;
 import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
+//import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -41,6 +46,12 @@ public class Provider2FeignController extends BaseController {
     @Autowired
     private MailService mailService;
 
+//    @Autowired
+//    private RocketMQTemplate rocketMQTemplate;
+
+    @Autowired
+    private StreamSource source;
+
     @Autowired
     private RedisUtil redisUtil;
     @GetMapping(value = "/provider2feign/{name}")
@@ -56,6 +67,17 @@ public class Provider2FeignController extends BaseController {
         TUser user = userService.findUserByParams(params);
         mailService.sendSimpleMail("baiwei@lppz.com","美国-五角大楼-provider",name);
         return Result.SUCCESS(user);
+    }
+
+    @GetMapping(value = "/mq/{msg}")
+    public Result sendMq(@PathVariable String msg){
+        List<TUser> list = userService.list();
+        list.forEach(user->{
+            source.output2().send(MessageBuilder.withPayload(user).build());
+        });
+
+        //source.output1().send(MessageBuilder.withPayload(msg).build());
+        return Result.SUCCESS(msg);
     }
 
 }

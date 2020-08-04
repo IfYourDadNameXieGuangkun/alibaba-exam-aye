@@ -11,5 +11,26 @@
 
     <artifactId>alibaba-exam-java8</artifactId>
 
+<!--    <dependencies>-->
+<!--        <dependency>-->
+<!--            <groupId></groupId>-->
+<!--            <artifactId></artifactId>-->
+<!--        </dependency>-->
+<!--    </dependencies>-->
+
+
+    <dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
+    </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+</dependencies>
+
 
 </project>

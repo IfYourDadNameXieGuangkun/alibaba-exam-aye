@@ -31,6 +31,10 @@ spring:
           data-id: nacos-mail.yaml
           refresh: true
           group: tools
+        ext-config[4]:
+          data-id: nacos-provider-mq.yaml
+          refresh: true
+          group: provider
 
 rediso: redis-local
 
