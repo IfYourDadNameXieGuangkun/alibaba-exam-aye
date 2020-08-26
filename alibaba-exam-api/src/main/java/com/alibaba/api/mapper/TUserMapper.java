@@ -17,4 +17,6 @@ import java.util.Map;
 public interface TUserMapper extends BaseMapper<TUser> {
 
     TUser findUserByParams(Map<String, Object> params);
+
+    String addUser(TUser s);
 }

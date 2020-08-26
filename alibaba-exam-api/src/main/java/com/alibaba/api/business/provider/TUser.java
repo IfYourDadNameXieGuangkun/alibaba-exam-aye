@@ -1,10 +1,12 @@
 package com.alibaba.api.business.provider;
 
+import com.alibaba.api.common.enums.PayType;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
 
 import java.io.Serializable;
 
@@ -32,6 +34,8 @@ public class TUser implements Serializable {
 
     private String phone;
 
+    private PayType payType;
+
     @Override
     public String toString() {
         return "TUser{" +
@@ -39,6 +43,9 @@ public class TUser implements Serializable {
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
+                ", payType='" + payType + '\'' +
                 '}';
     }
+
+
 }

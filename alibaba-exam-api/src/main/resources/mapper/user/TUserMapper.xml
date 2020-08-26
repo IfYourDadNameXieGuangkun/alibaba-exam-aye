@@ -12,7 +12,7 @@
 
 <!-- 通用查询结果列 -->
 <sql id="Base_Column_List">
-        user_id, user_name, password, phone
+        user_id, user_name, password, phone,pay_type
     </sql>
 
     <select id="findUserByParams" resultMap="BaseResultMap" parameterType="map">
@@ -23,6 +23,17 @@
         where
         user_name=#{username}
     </select>
+    <insert id="addUser" parameterType="com.alibaba.api.business.provider.TUser">
+        insert into t_user(user_id,user_name,password,phone,pay_type)
+        value
+        (#{userId},
+        #{userName},
+        #{password},
+        #{phone},
+        #{payType,javaType=com.alibaba.api.common.enums.PayType}
+        )
+
+    </insert>
 
 </mapper>
 

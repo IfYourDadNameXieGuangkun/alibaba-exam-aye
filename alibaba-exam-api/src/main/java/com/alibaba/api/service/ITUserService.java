@@ -19,4 +19,6 @@ public interface ITUserService extends IService<TUser> {
 
 
     TUser findUserByParams(Map<String, Object> params);
+
+    String addUser(TUser user);
 }

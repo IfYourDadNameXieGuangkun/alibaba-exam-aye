@@ -2,6 +2,7 @@ package com.alibaba.api.service.impl;
 
 
 import com.alibaba.api.business.provider.TUser;
+import com.alibaba.api.common.utils.Result;
 import com.alibaba.api.mapper.TUserMapper;
 import com.alibaba.api.service.ITUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -25,5 +26,10 @@ public class TUserServiceImpl extends ServiceImpl<TUserMapper, TUser> implements
     @Override
     public TUser findUserByParams(Map<String, Object> params) {
         return tUserMapper.findUserByParams(params);
+    }
+
+    @Override
+    public String addUser(TUser s) {
+        return tUserMapper.addUser(s);
     }
 }
