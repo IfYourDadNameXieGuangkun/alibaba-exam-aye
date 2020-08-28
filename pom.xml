@@ -25,6 +25,7 @@
         <module>alibaba-exam-job</module>
         <module>alibaba-exam-java8</module>
         <module>alibaba-exam-spring</module>
+        <module>alibaba-exam-validator</module>
     </modules>
 
     <properties>
