@@ -13,10 +13,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan(basePackages = {"com.alibaba.api.**.mapper"})
 public class MyBatisPlusConfig {
 
-        @Bean
-        public PaginationInterceptor paginationInterceptor() {
-            return new PaginationInterceptor();
-        }
+    @Bean
+    public PaginationInterceptor paginationInterceptor() {
+        return new PaginationInterceptor();
+    }
 
 
 }

@@ -1,6 +1,7 @@
 package moc;
 
 import com.alibaba.validator.NacosValidatorApplication;
+import com.alibaba.validator.service.OrderTaskService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,12 +17,16 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = {NacosValidatorApplication.class,MocTest.class})
+@SpringBootTest(classes = {NacosValidatorApplication.class, MocTest.class})
 public class MocTest {
     private MockMvc mockMvc;
 
     @Autowired
     private WebApplicationContext webApplicationContext;
+
+    @Autowired
+    private OrderTaskService orderTaskService;
+
 
     @Before
     public void setup() {
@@ -58,5 +63,22 @@ public class MocTest {
                 //.andExpect(MockMvcResultMatchers.jsonPath("$.code").value(0)) //使用Json path验证JSON 请参考http://goessner.net/articles/JsonPath/
                 .andDo(MockMvcResultHandlers.print());
 
+    }
+
+    /**
+     * 测试线程池
+     */
+    @Test
+    public void testThread() {
+        try {
+            //while (true) {
+                orderTaskService.orderTask();
+
+            //}
+        } catch (Exception e) {
+            e.printStackTrace();
+            Thread.currentThread().interrupt();
+
+        }
     }
 }
